@@ -1,2 +1,2 @@
 # cutartsis
-Site provide you beautiful cut outs!
+Site provides you beautiful cut outs!
