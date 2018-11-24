@@ -19,8 +19,7 @@ cd ~/deploy
 ./frontend/docker/build_docker_image.sh
 
 # перезапуск docker контейнеров на сервере
-# sudo docker-compose down
-# sudo docker container prune --force
-# sudo -E docker-compose up -d
+sudo docker stop cutartsis-frontend
+sudo docker run -d --rm cutartsis-frontend --name cutartsis-frontend
 ENDSSH
 echo "Deploy complete!"
