@@ -21,6 +21,6 @@ cd ~/deploy
 # перезапуск docker контейнеров на сервере
 sudo docker stop cutartsis-frontend || true
 sudo docker rm cutartsis-frontend || true
-sudo docker run -p 80:80 --rm --name cutartsis-frontend -d cutartsis-frontend
+sudo docker run -p 80:80 --restart unless-stopped --rm --name cutartsis-frontend -d cutartsis-frontend
 ENDSSH
 echo "Deploy complete!"
