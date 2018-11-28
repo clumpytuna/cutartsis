@@ -5,8 +5,6 @@ set -x
 REMOTE=cutartsis@207.154.229.41
 cd `dirname $0`
 
-cat ~/.ssh/id_rsa.pub
-
 sshpass -e ssh -o stricthostkeychecking=no $REMOTE <<ENDSSH
 set -e
 set -x
