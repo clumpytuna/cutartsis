@@ -9,7 +9,7 @@
 <style>
   @font-face {
     font-family: "Berthold";
-    src: url('/Berthold_Akzidenz_Grotesk_Super.otf') format("opentype");
+    src: url('/static/Berthold_Akzidenz_Grotesk_Super.otf') format("opentype");
   }
 
   body {
