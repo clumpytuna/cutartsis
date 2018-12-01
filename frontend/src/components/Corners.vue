@@ -1,9 +1,9 @@
 <template>
   <div class="corners">
-    <img class="corner corner-top-left" src="/corners/top-left/12.png" alt="">
-    <img class="corner corner-top-right" src="/corners/top-right/1.png" alt="">
-    <img class="corner corner-bottom-left" src="/corners/bottom-left/1.png" alt="">
-    <img class="corner corner-bottom-right" src="/corners/bottom-right/1.png" alt="">
+    <img class="corner corner-top-left" src="/images/decorations/corners/top-left/12.png" alt="">
+    <img class="corner corner-top-right" src="/images/decorations/corners/top-right/1.png" alt="">
+    <img class="corner corner-bottom-left" src="/images/decorations/corners/bottom-left/1.png" alt="">
+    <img class="corner corner-bottom-right" src="/images/decorations/corners/bottom-right/1.png" alt="">
   </div>
 </template>
 

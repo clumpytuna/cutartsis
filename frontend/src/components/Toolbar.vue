@@ -18,7 +18,7 @@
   }
 
   .art {
-    background: no-repeat url("/patterns/ART/1.png");
+    background: no-repeat url("/images/decorations/patterns/ART/1.png");
     background-size: contain;
 
     background-clip: text;
