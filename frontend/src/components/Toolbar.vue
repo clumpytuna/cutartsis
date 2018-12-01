@@ -3,7 +3,7 @@
     <router-link to="/" class="logo">
       CUT<span class="art">ART</span>SIS
     </router-link>
-    <router-link to="/random" class="toolbar__link random">RANDOME</router-link>
+    <router-link to="/random" class="toolbar__link random">RANDOM</router-link>
     <router-link to="/about" class="toolbar__link about-us">ABOUT US</router-link>
     <router-link to="/donate" class="toolbar__link donate">DONATE</router-link>
   </div>
