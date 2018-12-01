@@ -8,3 +8,4 @@ services:
       - 80:80
     volumes:
     - /data/frontend-images:/frontend-images
+    - /root/certs-data/:/data/letsencrypt/
