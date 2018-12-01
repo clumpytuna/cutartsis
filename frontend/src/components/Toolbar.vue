@@ -36,10 +36,6 @@
     color: black;
   }
 
-  .toolbar__link:hover {
-    color: #1976d2;
-  }
-
   .logo {
     /* 936 — ширина CUTARTSIS при font-size: 10vw; и размере экрана 1600px */
     /* Получаем пропорцию: */
@@ -61,24 +57,31 @@
     color: transparent;
   }
 
-  .about-us, .donate {
+  .random:hover {
+    background: no-repeat url("/images/decorations/patterns/random/1.png");
+    background-size: contain;
+  }
+
+  .about-us:hover {
+    background: no-repeat url("/images/decorations/patterns/about_us/3.png");
+    background-size: contain;
+  }
+
+  .donate:hover {
+    background: no-repeat url("/images/decorations/patterns/donate/1.png");
+    background-size: contain;
+  }
+
+  .toolbar__link:hover {
     /*
       TODO background-clip text
        это не очень просто сделать,
        так как в отличие от слова ART (у которого все буквы идеально касаются границ bounding box в html),
        у слов Donate и About us между буквами и границами bounding box в html есть небольшой отступ
     */
-    /*color: transparent;*/
-  }
-
-  .about-us {
-    /*background: no-repeat url("/images/decorations/patterns/about_us/3.png");*/
-    /*background-size: contain;*/
-  }
-
-  .donate {
-    /*background: no-repeat url("/images/decorations/patterns/donate/1.png");*/
-    /*background-size: contain;*/
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
 </style>
 
