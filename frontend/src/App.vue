@@ -1,26 +1,44 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link to="/random">Randome</router-link>
-      <router-link to="/about">About us</router-link>
-      <router-link to="/donate">Donate</router-link>
-    </div>
-    <router-view/>
+    <corners class="corners" />
+    <toolbar class="toolbar" />
+    <router-view />
   </div>
 </template>
 
 <style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
+  @font-face {
+    font-family: "Berthold";
+    src: url('/static/Berthold_Akzidenz_Grotesk_Super.otf') format("opentype");
   }
 
-  a {
-    display: inline-block;
-    margin: 20px;
+  body {
+    margin: 0;
+  }
+
+  #app {
+    font-family: Berthold, Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: calc(100vw * 675 / 15118);
+    padding-top: calc(100vw * 571 / 15118);
+  }
+
+  .corners {
+    z-index: 1;
+  }
+
+  .toolbar {
+    position: relative;
+    z-index: 2;
   }
 </style>
+
+<script>
+  import Corners from './components/Corners';
+  import Toolbar from './components/Toolbar';
+
+  export default {
+    components: { Toolbar, Corners },
+  };
+</script>

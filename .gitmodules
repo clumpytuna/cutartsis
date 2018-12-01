@@ -1,0 +1,3 @@
+[submodule "frontend/public/images"]
+	path = frontend/public/images
+	url = git@github.com:clumpytuna/cutartsis_pictures.git
