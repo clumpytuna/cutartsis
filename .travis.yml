@@ -3,6 +3,7 @@ language: generic
 
 git:
   depth: 1
+  submodules: false
 
 deploy:
   provider: script
