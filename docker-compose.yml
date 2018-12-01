@@ -9,3 +9,4 @@ services:
     volumes:
     - /data/frontend-images:/frontend-images
     - /root/certs-data/:/data/letsencrypt/
+    - /etc/letsencrypt/:/etc/letsencrypt/
