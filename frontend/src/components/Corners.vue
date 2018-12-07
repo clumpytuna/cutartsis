@@ -1,6 +1,11 @@
 <template>
   <div class="corners">
-    <img class="corner corner-top-left" src="/images/decorations/corners/top-left/12.png" alt="">
+    <responsive-image
+      class="corner corner-top-left"
+      src="/images/decorations/corners/top-left/12.png"
+      sizes="4vw"
+      alt=""
+    />
     <img class="corner corner-top-right" src="/images/decorations/corners/top-right/1.png" alt="">
     <img class="corner corner-bottom-left" src="/images/decorations/corners/bottom-left/1.png" alt="">
     <img class="corner corner-bottom-right" src="/images/decorations/corners/bottom-right/1.png" alt="">
@@ -50,7 +55,10 @@
 </style>
 
 <script>
+  import ResponsiveImage from './ResponsiveImage';
+
   export default {
     name: 'Corners',
+    components: { ResponsiveImage },
   };
 </script>
