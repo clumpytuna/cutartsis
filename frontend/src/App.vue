@@ -24,7 +24,6 @@
     padding: calc(100vw * 280 / 15118) calc(100vw * 679 / 15118) calc(100vw * 429 / 15118);
     display: flex;
     flex-direction: column;
-    height: 100%;
     box-sizing: border-box;
   }
 
