@@ -1,3 +1,8 @@
 module.exports = {
-  assetsDir: 'static'
+  assetsDir: 'static',
+  configureWebpack: {
+    optimization: {
+      splitChunks: false
+    }
+  }
 }
