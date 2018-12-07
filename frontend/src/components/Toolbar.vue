@@ -1,37 +1,42 @@
 <template>
   <div class="toolbar">
-    <router-link to="/" class="logo">
-      CUT<span class="art">ART</span>SIS
-    </router-link>
-    <router-link to="/random" class="toolbar__link random">RANDOM</router-link>
-    <router-link to="/about" class="toolbar__link about-us">ABOUT US</router-link>
-    <router-link to="/donate" class="toolbar__link donate">DONATE</router-link>
+    <div class="logo-wrapper">
+      <router-link to="/" class="logo">
+        CUT<span class="art">ART</span>SIS
+      </router-link>
+    </div>
+    <div class="links_wrapper">
+      <router-link to="/random" class="link random">RANDOM</router-link>
+      <router-link to="/about" class="link about-us">ABOUT US</router-link>
+      <router-link to="/donate" class="link donate">DONATE</router-link>
+    </div>
   </div>
 </template>
 
 <style scoped>
-  .toolbar {
+  .logo-wrapper {
+    text-align: center;
+    /* TODO убрать вычитание 100vw * 11 / 1600 и изменить ширфт чтобы у букв не было отступов снизу */
+    margin-bottom: calc(100vw * 281 / 15118 - 100vw * 11 / 1600);
+  }
+
+  .links_wrapper {
     display: flex;
-    align-items: center;
-    padding-right: calc(100vw * 318 / 15118);
+    justify-content: center;
   }
 
-  .random {
-    margin-left: auto;
-  }
-
-  .toolbar__link + .toolbar__link {
-    margin-left: calc(100vw * 376 / 15118);
+  .link + .link {
+    margin-left: calc(100vw * 179 / 15118);
   }
 
   a {
     text-decoration: none;
   }
 
-  .toolbar__link {
+  .link {
     /* 685 — ширина DONATE при font-size: 10vw; и размере экрана 1600px */
     /* Подробное объяснение в .logo */
-    font-size: calc(10vw * (1429 / 15118) / (685 / 1600));
+    font-size: calc(10vw * (715 / 15118) / (685 / 1600));
     line-height: 1;
     color: black;
   }
@@ -40,9 +45,9 @@
     /* 936 — ширина CUTARTSIS при font-size: 10vw; и размере экрана 1600px */
     /* Получаем пропорцию: */
     /* 10vw ⇒ 936/1600 */
-    /* Xvw ⇒ 6375/15118 */
-    /* X = (6375/15118) / (936/1600) */
-    font-size: calc(10vw * (6375 / 15118) / (936 / 1600));
+    /* Xvw ⇒ 3191/15118 */
+    /* X = (3191/15118) / (936/1600) */
+    font-size: calc(10vw * (3191 / 15118) / (936 / 1600));
     user-select: none;
     line-height: 1;
     color: black;
@@ -72,7 +77,7 @@
     background-size: contain;
   }
 
-  .toolbar__link:hover {
+  .link:hover {
     /*
       TODO background-clip text
        это не очень просто сделать,

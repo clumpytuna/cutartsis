@@ -19,8 +19,8 @@
 
   .corner {
     position: absolute;
-    height: calc(100vmax * 895 / 15118);
-    width: calc(100vmax * 895 / 15118);
+    height: calc(100vmax * 537 / 15118);
+    width: calc(100vmax * 537 / 15118);
     user-select: none;
   }
 

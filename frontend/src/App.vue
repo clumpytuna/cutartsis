@@ -20,8 +20,8 @@
     font-family: Berthold, Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    padding: calc(100vw * 675 / 15118);
-    padding-top: calc(100vw * 571 / 15118);
+
+    padding: calc(100vw * 280 / 15118) calc(100vw * 679 / 15118) calc(100vw * 429 / 15118);
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -35,8 +35,8 @@
   .toolbar {
     position: relative;
     z-index: 2;
-    /* TODO убрать вычитание 100vw * 28px / 1600 и изменить ширфт чтобы у букв не было отступов снизу */
-    margin-bottom: calc(100vw * 604 / 15118 - 100vw * 28 / 1600);
+    /* TODO убрать вычитание 100vw * 4 / 1600 и изменить ширфт чтобы у букв не было отступов снизу */
+    margin-bottom: calc(100vw * 132 / 15118 - 100vw * 4 / 1600);
   }
 </style>
 
