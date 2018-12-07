@@ -14,6 +14,15 @@
 </template>
 
 <style scoped>
+  .toolbar {
+    background-color: white;
+    position: sticky;
+    top: 0;
+    padding-top: calc(100vw * 280 / 15118);
+    /* TODO убрать вычитание 100vw * 4 / 1600 и изменить ширфт чтобы у букв не было отступов снизу */
+    padding-bottom: calc(100vw * 132 / 15118 - 100vw * 4 / 1600);
+  }
+
   .logo-wrapper {
     text-align: center;
     /* TODO убрать вычитание 100vw * 11 / 1600 и изменить ширфт чтобы у букв не было отступов снизу */
