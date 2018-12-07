@@ -16,6 +16,10 @@
     height: 100%;
   }
 
+  body::-webkit-scrollbar {
+    width: 0;
+  }
+
   #app {
     font-family: Berthold, Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
