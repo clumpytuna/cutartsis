@@ -15,6 +15,7 @@
     name: 'ResponsiveImage',
     props: {
       src: {
+        // должно заканчиваться на .png
         type: String,
         required: true,
       },
@@ -26,6 +27,10 @@
         type: String,
         default: '100vw',
       },
+      jpg: {
+        type: Boolean,
+        default: true,
+      },
     },
     data() {
       return {
@@ -35,12 +40,12 @@
     },
     computed: {
       srcComputed() {
-        return IS_DEVELOPMENT ? this.src : this.src.replace('.png', '.jpg');
+        return IS_DEVELOPMENT || !this.jpg ? this.src : this.src.replace('.png', '.jpg');
       },
       srcset() {
         if (IS_DEVELOPMENT) return null;
 
-        const src = this.srcComputed.replace('/images/', '');
+        const src = this.srcComputed.replace('/images/', '').replace(' ', '%20');
         const entries = this.breakpoints.map(breakpoint => `/images_resized/${breakpoint}/${src} ${breakpoint}w`);
         return entries.join(',');
       },
