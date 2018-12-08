@@ -4,7 +4,7 @@
       v-for="position of ['top-left', 'top-right', 'bottom-left', 'bottom-right']"
       :class="`corner corner-${position}`"
       :src="`/images/decorations/corners/${position}/12.png`"
-      sizes="5vw"
+      :sizes="5"
       alt=""
     />
   </div>

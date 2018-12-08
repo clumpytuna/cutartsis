@@ -2,7 +2,7 @@
   <div class="toolbar">
     <div class="logo-wrapper">
       <router-link to="/" class="logo">
-        CUT<span class="art">ART</span>SIS
+        CUT<span class="art" :style="`--art-image-url: url(${artImageUrl})`">ART</span>SIS
       </router-link>
     </div>
     <div class="links_wrapper">
@@ -63,7 +63,7 @@
   }
 
   .art {
-    background: no-repeat url("/images/decorations/patterns/ART/1.png");
+    background: no-repeat var(--art-image-url);
     background-size: contain;
 
     background-clip: text;
@@ -100,7 +100,17 @@
 </style>
 
 <script>
+  import { getImageResizedUrl } from './responsive';
+
   export default {
     name: 'Toolbar',
+    computed: {
+      artImageUrl() {
+        const imageUrl = '/images/decorations/patterns/ART/1.png';
+        const cutartsisWordRelativeWidth = 3191 / 15118;
+        const artWordRelativeWidth = cutartsisWordRelativeWidth / 3;
+        return getImageResizedUrl(imageUrl, artWordRelativeWidth);
+      },
+    },
   };
 </script>

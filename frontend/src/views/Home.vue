@@ -18,7 +18,7 @@
         class="image"
         :jpg="false"
         :src="`/images/content/${entry.name}`"
-        :sizes="`${100 * (entry.h / 12)}vw`"
+        :sizes="100 * (entry.h / 12)"
         :alt="entry.name"
         :style="{ '--grid-i': entry.i, '--grid-j': entry.j, '--grid-h': entry.h, '--grid-w': entry.w }"
       />

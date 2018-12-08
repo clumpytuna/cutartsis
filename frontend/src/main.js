@@ -5,9 +5,11 @@ import router from './router';
 Vue.config.productionTip = false;
 
 import 'normalize.css';
+import store from './store';
 
 new Vue({
   el: '#app',
   router,
-  render: h => h(App),
+  store,
+  render: h => h(App)
 });
