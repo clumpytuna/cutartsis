@@ -12,5 +12,5 @@ services:
       - /data/cache/:/cache
       - /root/certs-data/:/data/letsencrypt/
       - /etc/letsencrypt/:/etc/letsencrypt/
-    configs:
-      container_name: frontend
+    container_name: frontend
+
