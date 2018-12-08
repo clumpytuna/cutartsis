@@ -2,14 +2,34 @@
   <div class="toolbar">
     <div class="logo-wrapper">
       <router-link to="/" class="logo">
-        CUT<span class="art" :style="`--art-image-url: url(${artImageUrl})`">ART</span>SIS
+        CUT<span class="art" :style="`--image-url: url(${artImageUrl})`">ART</span>SIS
       </router-link>
     </div>
     <div class="links_wrapper">
-      <router-link to="/random" class="link random">RANDOM</router-link>
-      <router-link to="/about" class="link about-us">ABOUT US</router-link>
-      <router-link to="/donate" class="link donate">DONATE</router-link>
+      <router-link
+        to="/random"
+        class="link"
+        :style="`--image-url: url(${randomImageUrl})`"
+      >
+        RANDOM
+      </router-link>
+      <router-link
+        to="/about"
+        class="link"
+        :style="`--image-url: url(${aboutUsImageUrl})`"
+      >
+        ABOUT US
+      </router-link>
+      <router-link
+        to="/donate"
+        class="link"
+        :style="`--image-url: url(${donateImageUrl})`"
+      >
+        DONATE
+      </router-link>
     </div>
+
+    <div class="images_preload"></div>
   </div>
 </template>
 
@@ -34,12 +54,12 @@
     justify-content: center;
   }
 
-  .link + .link {
-    margin-left: calc(100vw * 179 / 15118);
+  .logo, .link {
+    text-decoration: none;
   }
 
-  a {
-    text-decoration: none;
+  .link + .link {
+    margin-left: calc(100vw * 179 / 15118);
   }
 
   .link {
@@ -62,40 +82,24 @@
     color: black;
   }
 
-  .art {
-    background: no-repeat var(--art-image-url);
-    background-size: contain;
-
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-
-  .random:hover {
-    background: no-repeat url("/images/decorations/patterns/random/1.png");
-    background-size: contain;
-  }
-
-  .about-us:hover {
-    background: no-repeat url("/images/decorations/patterns/about_us/3.png");
-    background-size: contain;
-  }
-
-  .donate:hover {
-    background: no-repeat url("/images/decorations/patterns/donate/1.png");
-    background-size: contain;
-  }
-
-  .link:hover {
+  .art, .link {
     /*
-      TODO background-clip text
+      TODO улучшить background-clip text для .link
        это не очень просто сделать,
        так как в отличие от слова ART (у которого все буквы идеально касаются границ bounding box в html),
        у слов Donate и About us между буквами и границами bounding box в html есть небольшой отступ
     */
+    background: no-repeat var(--image-url);
+    background-size: contain;
+
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+  }
+
+  .link:not(:hover) {
+    background-position: -9999px -9999px;
+    color: initial;
   }
 </style>
 
@@ -110,6 +114,18 @@
         const cutartsisWordRelativeWidth = 3191 / 15118;
         const artWordRelativeWidth = cutartsisWordRelativeWidth / 3;
         return getImageResizedUrl(imageUrl, artWordRelativeWidth);
+      },
+      randomImageUrl() {
+        const imageUrl = '/images/decorations/patterns/random/1.png';
+        return getImageResizedUrl(imageUrl, 805 / 15118);
+      },
+      aboutUsImageUrl() {
+        const imageUrl = '/images/decorations/patterns/about_us/1.png';
+        return getImageResizedUrl(imageUrl, 914 / 15118);
+      },
+      donateImageUrl() {
+        const imageUrl = '/images/decorations/patterns/donate/1.png';
+        return getImageResizedUrl(imageUrl, 715 / 15118);
       },
     },
   };
