@@ -3,7 +3,7 @@
     <responsive-image
       class="corner corner-top-left"
       src="/images/decorations/corners/top-left/12.png"
-      sizes="4vw"
+      sizes="5vw"
       alt=""
     />
     <img class="corner corner-top-right" src="/images/decorations/corners/top-right/1.png" alt="">
