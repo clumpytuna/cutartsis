@@ -64,7 +64,7 @@
       return {
         layoutEntries,
         gridWidth: null,
-        numberRows: Math.max(...layoutEntries.map(entry => entry.i + entry.h - 1)),
+        numberRows: Math.max(...layoutEntries.map(entry => entry.i + entry.w - 1)),
       };
     },
     mounted() {
