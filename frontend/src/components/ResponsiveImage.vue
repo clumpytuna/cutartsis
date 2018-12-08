@@ -9,6 +9,7 @@
 
 <script>
   const IS_DEVELOPMENT = window.location.hostname === 'localhost';
+  // const IS_DEVELOPMENT = false;
 
   export default {
     name: 'ResponsiveImage',

@@ -13,13 +13,14 @@
     </template>
 
     <template v-if="gridWidth !== null">
-      <img
+      <responsive-image
         v-for="entry of layoutEntries"
         class="image"
         :src="`/images/content/${entry.name}`"
+        :sizes="`${100 * (entry.h / 12)}vw`"
         :alt="entry.name"
         :style="{ '--grid-i': entry.i, '--grid-j': entry.j, '--grid-h': entry.h, '--grid-w': entry.w }"
-      >
+      />
     </template>
   </div>
 </template>
@@ -53,9 +54,11 @@
 
 <script>
   import layoutEntries from './layout';
+  import ResponsiveImage from '../components/ResponsiveImage';
 
   export default {
     name: 'home',
+    components: { ResponsiveImage },
     data() {
       return {
         layoutEntries,
