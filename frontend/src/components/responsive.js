@@ -10,11 +10,13 @@ function getImageWidth(imageRelativeWidth) {
   return Math.ceil(widthInRealPixels / 100) * 100;
 }
 
-export function getImageResizedUrl(imageUrl, imageRelativeWidth) {
+export function getImageResizedUrl(imageUrl, imageRelativeWidth, useJpg = true) {
   if (IS_DEVELOPMENT) return imageUrl;
 
   const imageWidth = getImageWidth(imageRelativeWidth);
-  imageUrl = imageUrl.replace('.png', '.jpg');
+  if (useJpg) {
+    imageUrl = imageUrl.replace('.png', '.jpg');
+  }
   imageUrl = imageUrl.replace(' ', '%20');
   imageUrl = imageUrl.replace('/images/', `/images_resized/${imageWidth}/`);
   return imageUrl;

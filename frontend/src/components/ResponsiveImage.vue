@@ -25,14 +25,14 @@
         type: Number,
         default: 100,
       },
-      jpg: {
+      useJpg: {
         type: Boolean,
         default: true,
       },
     },
     computed: {
       srcComputed() {
-        return getImageResizedUrl(this.src, this.sizes / 100);
+        return getImageResizedUrl(this.src, this.sizes / 100, this.useJpg);
       },
     },
   };

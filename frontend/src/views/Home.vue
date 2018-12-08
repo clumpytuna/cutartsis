@@ -16,7 +16,7 @@
       <responsive-image
         v-for="entry of layoutEntries"
         class="image"
-        :jpg="false"
+        :useJpg="false"
         :src="`/images/content/${entry.name}`"
         :sizes="100 * (entry.h / 12)"
         :alt="entry.name"
