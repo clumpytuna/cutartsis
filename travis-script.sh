@@ -5,7 +5,7 @@ set -x
 REMOTE=cutartsis@207.154.229.41
 cd `dirname $0`
 
-sshpass -e ssh -o stricthostkeychecking=no $REMOTE <<ENDSSH
+ssh -o stricthostkeychecking=no $REMOTE <<ENDSSH
 set -e
 set -x
 

@@ -10,7 +10,3 @@ deploy:
   script: bash travis-script.sh
   skip_cleanup: true
 
-addons:
-  apt:
-    packages:
-    - sshpass
