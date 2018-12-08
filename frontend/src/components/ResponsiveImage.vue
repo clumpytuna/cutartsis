@@ -15,6 +15,7 @@
     name: 'ResponsiveImage',
     props: {
       src: {
+        // должно заканчиваться на .png
         type: String,
         required: true,
       },
@@ -26,6 +27,10 @@
         type: String,
         default: '100vw',
       },
+      jpg: {
+        type: Boolean,
+        default: true,
+      },
     },
     data() {
       return {
@@ -35,7 +40,7 @@
     },
     computed: {
       srcComputed() {
-        return IS_DEVELOPMENT ? this.src : this.src.replace('.png', '.jpg');
+        return IS_DEVELOPMENT || !this.jpg ? this.src : this.src.replace('.png', '.jpg');
       },
       srcset() {
         if (IS_DEVELOPMENT) return null;
