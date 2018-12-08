@@ -45,7 +45,7 @@
       srcset() {
         if (IS_DEVELOPMENT) return null;
 
-        const src = this.srcComputed.replace('/images/', '');
+        const src = this.srcComputed.replace('/images/', '').replace(' ', '%20');
         const entries = this.breakpoints.map(breakpoint => `/images_resized/${breakpoint}/${src} ${breakpoint}w`);
         return entries.join(',');
       },
