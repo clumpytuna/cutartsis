@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <corners class="corners" />
-    <toolbar class="toolbar" />
+    <toolbar class="toolbar" v-if="!$route.meta.hideToolbar" />
     <router-view />
   </div>
 </template>
@@ -14,6 +14,10 @@
 
   html, body {
     height: 100%;
+  }
+
+  #app {
+    min-height: 100%;
   }
 
   body::-webkit-scrollbar {

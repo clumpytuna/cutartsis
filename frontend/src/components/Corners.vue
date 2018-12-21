@@ -28,25 +28,21 @@
   }
 
   .corner-top-left {
-    transform-origin: top left;
     top: 0;
     left: 0;
   }
 
   .corner-top-right {
-    transform-origin: top right;
     top: 0;
     right: 0;
   }
 
   .corner-bottom-left {
-    transform-origin: bottom left;
     bottom: 0;
     left: 0;
   }
 
   .corner-bottom-right {
-    transform-origin: bottom right;
     bottom: 0;
     right: 0;
   }
