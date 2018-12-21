@@ -28,8 +28,6 @@
         DONATE
       </router-link>
     </div>
-
-    <div class="images_preload"></div>
   </div>
 </template>
 
