@@ -1,11 +1,16 @@
 <template>
-  <div class="footer">
+  <footer class="footer">
     <span><b>CUTARTSIS</b> Cutouts\ 20/08 added 10 new Cutouts</span>
-    <a class="instagram" href="https://instagram.com/" target="_blank">
+    <a
+      class="instagram"
+      href="https://instagram.com/"
+      target="_blank"
+      rel="noopener"
+    >
       <b>cut_art_sis</b>
       <instagram-icon class="instagram-icon" />
     </a>
-  </div>
+  </footer>
 </template>
 
 <style scoped>

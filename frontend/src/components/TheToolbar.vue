@@ -1,5 +1,5 @@
 <template>
-  <div class="toolbar">
+  <header class="toolbar">
     <router-link to="/" class="logo">
       CUT<span class="art">ART</span>SIS
     </router-link>
@@ -23,7 +23,7 @@
         HIGH RESOLUTION!
       </router-link>
     </div>
-  </div>
+  </header>
 </template>
 
 <style scoped>
@@ -74,5 +74,9 @@
     font-weight: bold;
     line-height: 1;
     color: black;
+  }
+
+  .link:hover {
+    color: #1867c0;
   }
 </style>

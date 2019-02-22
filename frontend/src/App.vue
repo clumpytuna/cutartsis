@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <the-toolbar class="toolbar" v-if="!$route.meta.hideToolbar" />
-    <router-view />
-    <the-footer class="footer" v-if="!$route.meta.hideToolbar" />
+    <the-toolbar class="toolbar" />
+    <main>
+      <router-view />
+    </main>
+    <the-footer class="footer" />
   </div>
 </template>
 
@@ -33,6 +35,11 @@
 
   #app {
     min-height: 100%;
+    display: flex;
+  }
+
+  main {
+    flex: 1;
   }
 
   body::-webkit-scrollbar {
