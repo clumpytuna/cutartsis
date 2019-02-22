@@ -1,10 +1,10 @@
 <template>
   <div class="columns">
     <div
-      v-for="column of columns"
+      v-for="(column, i) of columns"
       class="column"
     >
-      <div v-for="(image, i) of column" class="image-wrapper">
+      <div v-for="image of column" class="image-wrapper">
         <div
           class="image-placeholder"
           :style="`--height: ${image.height}; --width: ${image.width};`"
@@ -12,7 +12,7 @@
           <responsive-image
             class="image"
             :src="`/images/content/${image.image}`"
-            :sizes="(i % 2 === 1 ? 19.8 : 28.25) / 128.1 * 100"
+            :sizes="(i % 2 === 0 ? 19.8 : 28.25) / 128.1 * 100"
             alt="cut-out image"
           />
         </div>
