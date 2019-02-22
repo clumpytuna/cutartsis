@@ -74,7 +74,6 @@
     /* 782 — ширина #musicans при font-size: 10vw; и размере экрана 1600px */
     /* Подробное объяснение в .logo */
     font-size: calc(10vw * (513 / 15118) / (782 / 1600));
-    font-family: AktivGroteskCorp;
   }
 </style>
 

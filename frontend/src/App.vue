@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <toolbar class="toolbar" v-if="!$route.meta.hideToolbar" />
+    <the-toolbar class="toolbar" v-if="!$route.meta.hideToolbar" />
     <router-view />
+    <the-footer class="footer" v-if="!$route.meta.hideToolbar" />
   </div>
 </template>
 
@@ -26,6 +27,10 @@
     height: 100%;
   }
 
+  * {
+    box-sizing: border-box;
+  }
+
   #app {
     min-height: 100%;
   }
@@ -35,7 +40,7 @@
   }
 
   #app {
-    font-family: Berthold, Avenir, Helvetica, Arial, sans-serif;
+    font-family: AktivGroteskCorp, Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
@@ -46,15 +51,16 @@
     flex-direction: column;
   }
 
-  * {
-    box-sizing: border-box;
+  .toolbar, .footer {
+    z-index: 1;
   }
 </style>
 
 <script>
-  import Toolbar from './components/Toolbar';
+  import TheToolbar from './components/TheToolbar';
+  import TheFooter from '@/components/TheFooter';
 
   export default {
-    components: { Toolbar },
+    components: { TheFooter, TheToolbar },
   };
 </script>

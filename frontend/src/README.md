@@ -20,6 +20,10 @@
     - ширина слова RESOLUTION: 1862
 * Теги
     - ширина #musicans: 513
+* Footer
+    - ширина слова: 530
+    - padding-top: 322
+    - padding-bottom: 429
 
 # Шрифт
 

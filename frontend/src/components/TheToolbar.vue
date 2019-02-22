@@ -53,6 +53,7 @@
     /* Xvw ⇒ 3663/15118 */
     /* X = (3663/15118) / (936/1600) * 10 */
     font-size: calc(10vw * (3663 / 15118) / (936 / 1600));
+    font-family: Berthold;
     user-select: none;
     line-height: 1;
     color: black;
@@ -70,7 +71,6 @@
     /* 994 — ширина RESOLUTION при font-size: 10vw; и размере экрана 1600px */
     /* Подробное объяснение в .logo */
     font-size: calc(10vw * (1862 / 15118) / (994 / 1600));
-    font-family: AktivGroteskCorp;
     font-weight: bold;
     line-height: 1;
     color: black;
