@@ -9,8 +9,8 @@
 <style>
   @font-face {
     font-family: "Berthold";
-    src: url('/static/Berthold_Akzidenz_Grotesk_Super.otf') format("opentype");
-    /*src: url('/static/Berthold_cropped.otf') format("opentype");*/
+    src: url('./assets/Berthold.otf') format("opentype");
+    /*src: url('./assets/Berthold_cropped.otf') format("opentype");*/
   }
 
   html, body {

@@ -1,12 +1,15 @@
 <template>
   <div class="root">
     <div v-for="word of words">
-      <span
+      <div
         :class="wordClasses"
         :style="`--image-url: url(${getWordImageUrl(word)})`"
       >
-        {{ word.word }}
-      </span>
+        <!--<div style="visibility: hidden">{{ word.word }}</div>-->
+        <!--<div class="word__inner">-->
+          {{ word.word }}
+        <!--</div>-->
+      </div>
     </div>
     <button @click="isAnimated = !isAnimated">{{ isAnimated ? 'Disable animation' : 'Enable animation' }}</button>
   </div>
@@ -68,12 +71,28 @@
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+
+    /*background-position: 50% 0% !important;*/
+    /*background-size: 50%;*/
   }
 
   .word-only-image {
     background-clip: initial;
     -webkit-background-clip: initial;
     color: transparent;
+  }
+
+  .word {
+    position: relative;
+  }
+
+  .word__inner {
+    /*margin-left: -4px;*/
+    /*margin-right: -4px;*/
+    /*margin-left: -50%;*/
+    /*margin-top: -50%;*/
+    /*position: absolute;*/
+    top: calc(-18 / 1000 * 100%);
   }
 </style>
 
@@ -83,7 +102,7 @@
   export default {
     data: () => ({
       isAnimated: true,
-      animationStep: 2,
+      animationStep: 1,
       words: [
         { word: 'ART', path: 'ART', width: 3191 / 3 },
         { word: 'RANDOM', path: 'random', width: 805 },
