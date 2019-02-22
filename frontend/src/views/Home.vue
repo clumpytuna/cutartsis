@@ -1,83 +1,99 @@
 <template>
-  <div
-    class="grid"
-    ref="grid"
-    :style="`--grid-width: ${gridWidth || 0}px`"
-  >
-    <template v-for="i of numberRows">
-      <div
-        v-for="j of 12"
-        class="cell-border"
-        :style="{ '--grid-i': i, '--grid-j': j }"
-      ></div>
-    </template>
+  <div class="columns">
+    <div
+      v-for="column of columns"
+      class="column"
+    >
+      <div v-for="(image, i) of column" class="image-wrapper">
+        <div
+          class="image-placeholder"
+          :style="`--height: ${image.height}; --width: ${image.width};`"
+        >
+          <responsive-image
+            class="image"
+            :src="`/images/content/${image.image}`"
+            :sizes="(i % 2 === 1 ? 19.8 : 28.25) / 128.1 * 100"
+            alt="cut-out image"
+          />
+        </div>
 
-    <template v-if="gridWidth !== null">
-      <responsive-image
-        v-for="entry of layoutEntries"
-        class="image"
-        :useJpg="false"
-        :src="`/images/content/${entry.name}`"
-        :sizes="100 * (entry.w / 12)"
-        :alt="entry.name"
-        :style="{ '--grid-i': entry.i, '--grid-j': entry.j, '--grid-h': entry.h, '--grid-w': entry.w }"
-      />
-    </template>
+        <div class="tags-wrapper">
+          <div class="tags">
+            #people #musicans #group #one #two #three #dancer
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
-  .grid {
-    display: grid;
-    grid-auto-rows: calc(var(--grid-width) / 12);
-    grid-template-columns: repeat(12, 1fr);
+  .columns {
+    display: flex;
+  }
 
-    border-top: 1px solid black;
-    border-left: 1px solid black;
+  .column {
+    padding-left: calc(100vw * 1 / 128);
+    padding-right: calc(100vw * 1 / 128);
+  }
+
+  .column:nth-child(odd) {
+    flex: 19.8;
+  }
+
+  .column:nth-child(even) {
+    flex: 28.25;
+  }
+
+  .image-wrapper + .image-wrapper {
+    margin-top: calc(100vw * 2 / 128);
+  }
+
+  .image-placeholder {
+    position: relative;
+    width: 100%;
+    padding-bottom: calc(var(--height) / var(--width) * 100%);
   }
 
   .image {
-    display: block;
+    position: absolute;
     width: 100%;
-    height: 100%;
-    object-fit: scale-down;
-    grid-row: var(--grid-i) / span var(--grid-h);
-    grid-column: var(--grid-j) / span var(--grid-w);
   }
 
-  .cell-border {
-    grid-row-start: var(--grid-i);
-    grid-column-start: var(--grid-j);
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
+  .tags-wrapper {
+    margin-top: calc(100vw * 2 / 128);
+    position: relative;
+  }
+
+  .tags {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    word-wrap: break-word;
+
+    /* 782 — ширина #musicans при font-size: 10vw; и размере экрана 1600px */
+    /* Подробное объяснение в .logo */
+    font-size: calc(10vw * (513 / 15118) / (782 / 1600));
+    font-family: AktivGroteskCorp;
   }
 </style>
 
 <script>
-  import layoutEntries from './layout';
+  import getColumns from './layout';
   import ResponsiveImage from '../components/ResponsiveImage';
+
+  const NUMBER_COLUMNS = 5;
 
   export default {
     name: 'home',
     components: { ResponsiveImage },
     data() {
       return {
-        layoutEntries,
-        gridWidth: null,
-        numberRows: Math.max(...layoutEntries.map(entry => entry.i + entry.w - 1)),
+        columns: null,
       };
     },
-    mounted() {
-      this.updateGridWidth();
-      window.addEventListener('resize', this.updateGridWidth);
-    },
-    beforeDestroy() {
-      window.removeEventListener('resize', this.updateGridWidth);
-    },
-    methods: {
-      updateGridWidth() {
-        this.gridWidth = this.$refs.grid.clientWidth;
-      },
+    async mounted() {
+      this.columns = await getColumns(NUMBER_COLUMNS);
     },
   };
 </script>

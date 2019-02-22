@@ -1,8 +1,5 @@
 <template>
-  <img
-    :src="srcComputed"
-    :alt="alt"
-  >
+  <img :src="srcComputed">
 </template>
 
 <script>
@@ -16,23 +13,15 @@
         type: String,
         required: true,
       },
-      alt: {
-        type: String,
-        default: '',
-      },
       sizes: {
         // процент ширины экрана, который предположительно займёт картинка
         type: Number,
         default: 100,
       },
-      useJpg: {
-        type: Boolean,
-        default: true,
-      },
     },
     computed: {
       srcComputed() {
-        return getImageResizedUrl(this.src, this.sizes / 100, this.useJpg);
+        return getImageResizedUrl(this.src, this.sizes / 100);
       },
     },
   };
