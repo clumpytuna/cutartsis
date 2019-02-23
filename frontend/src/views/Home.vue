@@ -13,6 +13,7 @@
             class="image"
             :src="`/images/content/${image.image}`"
             :sizes="(i % 2 === 0 ? 19.8 : 28.25) / 128.1 * 100"
+            :width="image.width"
             alt="cut-out image"
           />
         </div>

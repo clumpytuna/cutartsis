@@ -16,12 +16,16 @@
       sizes: {
         // процент ширины экрана, который предположительно займёт картинка
         type: Number,
-        default: 100,
+        required: true,
       },
+      width: {
+        type: Number,
+        required: true,
+      }
     },
     computed: {
       srcComputed() {
-        return getImageResizedUrl(this.src, this.sizes / 100);
+        return getImageResizedUrl(this.src, this.sizes / 100, this.width);
       },
     },
   };
