@@ -1,5 +1,5 @@
 <template>
-  <img :src="srcComputed">
+  <img :src="previewSrc && !previewShown ? previewSrc : srcComputed">
 </template>
 
 <script>
@@ -21,7 +21,18 @@
       width: {
         type: Number,
         required: true,
-      }
+      },
+      previewSrc: String,
+    },
+    data() {
+      return {
+        previewShown: false,
+      };
+    },
+    async mounted() {
+      const sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
+      await sleep(10);
+      this.previewShown = true;
     },
     computed: {
       srcComputed() {

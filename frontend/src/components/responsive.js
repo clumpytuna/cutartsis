@@ -2,6 +2,7 @@ import store from '@/store';
 
 // const IS_DEVELOPMENT = false;
 const IS_DEVELOPMENT = window.location.hostname === 'localhost';
+const USE_SERVER_IMAGES = false;
 const MAX_WIDTH = 1500;
 
 function getImageWidth(imageRelativeWidth) {
@@ -13,7 +14,11 @@ function getImageWidth(imageRelativeWidth) {
 }
 
 export function getImageResizedUrl(imageUrl, imageRelativeWidth, imageAbsoluteWidth) {
-  if (IS_DEVELOPMENT) return imageUrl;
+  if (USE_SERVER_IMAGES) {
+    imageUrl = 'https://cutartsis.com' + imageUrl;
+  } else if (IS_DEVELOPMENT) {
+    return imageUrl;
+  }
 
   const imageWidth = getImageWidth(imageRelativeWidth);
   if (imageWidth >= imageAbsoluteWidth - 100) return imageUrl;  // изображения размера близкого к исходного специально не генерируются

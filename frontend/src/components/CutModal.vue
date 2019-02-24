@@ -12,6 +12,7 @@
             class="image"
             :src="`/images/content/${image.image}`"
             :sizes="40"
+            :previewSrc="previewSrc"
             :width="image.width"
             alt="cut-out image"
           />
@@ -45,8 +46,9 @@
   }
 
   .image {
-    max-width: 40vw;
-    max-height: 70vh;
+    width: 40vw;
+    height: 70vh;
+    object-fit: contain;
     cursor: pointer;
   }
 
@@ -70,7 +72,7 @@
   export default {
     name: 'CutModal',
     components: { ResponsiveImage },
-    props: ['cut'],
+    props: ['cut', 'previewSrc'],
     watch: {
       $route: 'updateImage',
     },

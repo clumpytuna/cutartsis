@@ -19,6 +19,7 @@
             :src="`/images/content/${image.image}`"
             :sizes="(i % 2 === 0 ? 19.8 : 28.25) / 128.1 * 100"
             :width="image.width"
+            @click.native="onImageClick"
             alt="cut-out image"
           />
         </div>
@@ -34,6 +35,7 @@
     <cut-modal
       v-if="cut"
       :cut="cut"
+      :previewSrc="currentModalCutPreviewSrc"
       @close="$router.replace('/')"
     />
   </div>
@@ -110,10 +112,17 @@
     data() {
       return {
         columns: null,
+        currentModalCutPreviewSrc: null,
       };
     },
     async mounted() {
       this.columns = await getColumns(NUMBER_COLUMNS);
+    },
+    methods: {
+      onImageClick(event) {
+        this.currentModalCutPreviewSrc = event.target.getAttribute('src');
+        console.log(this.currentModalCutPreviewSrc);
+      },
     },
   };
 </script>
