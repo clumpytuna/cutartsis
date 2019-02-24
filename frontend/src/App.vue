@@ -59,7 +59,7 @@
   }
 
   .toolbar, .footer {
-    z-index: 1;
+    z-index: 20;
   }
 </style>
 

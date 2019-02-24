@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+export const imagesPromise = axios.get('/images/content/images.json').then(response => response.data);
+
 function createColumnsGroup(images, numberColumns) {
   const heights = Array(numberColumns).fill(0);
   const columns = Array(numberColumns).fill(null).map(() => []);
@@ -13,13 +15,12 @@ function createColumnsGroup(images, numberColumns) {
 }
 
 export default async function getColumns(numberColumns) {
-  const images = (await axios.get('/images/content/images.json')).data;
+  const images = await imagesPromise;
   const imagesHorizontal = images.filter(({ height, width }) => height < width);
   const imagesVertical = images.filter(({ height, width }) => height >= width);
 
   const columnsHorizontal = createColumnsGroup(imagesHorizontal, Math.floor(numberColumns / 2));
   const columnsVertical = createColumnsGroup(imagesVertical, Math.floor((numberColumns + 1) / 2));
   const getColumnByIndex = i => (i % 2 === 0 ? columnsVertical : columnsHorizontal)[Math.floor(i / 2)];
-  const columns = Array(numberColumns).fill(null).map((_, i) => getColumnByIndex(i));
-  return columns;
+  return Array(numberColumns).fill(null).map((_, i) => getColumnByIndex(i));
 }

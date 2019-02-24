@@ -4,7 +4,12 @@
       v-for="(column, i) of columns"
       class="column"
     >
-      <div v-for="image of column" class="image-wrapper">
+      <router-link
+        v-for="image of column"
+        class="image-wrapper"
+        :to="`/cut/${image.image.replace('.png', '')}`"
+        replace
+      >
         <div
           class="image-placeholder"
           :style="`--height: ${image.height}; --width: ${image.width};`"
@@ -23,8 +28,14 @@
             #people #musicans #group #one #two #three #dancer
           </div>
         </div>
-      </div>
+      </router-link>
     </div>
+
+    <cut-modal
+      v-if="cut"
+      :cut="cut"
+      @close="$router.replace('/')"
+    />
   </div>
 </template>
 
@@ -50,6 +61,12 @@
     margin-top: calc(100vw * 2 / 128);
   }
 
+  .image-wrapper:hover .image {
+    cursor: pointer;
+    opacity: 0.9;
+    transition: opacity .3s;
+  }
+
   .image-placeholder {
     position: relative;
     width: 100%;
@@ -71,6 +88,7 @@
     bottom: 0;
     width: 100%;
     word-wrap: break-word;
+    color: black;
 
     /* 782 — ширина #musicans при font-size: 10vw; и размере экрана 1600px */
     /* Подробное объяснение в .logo */
@@ -81,12 +99,14 @@
 <script>
   import getColumns from './layout';
   import ResponsiveImage from '../components/ResponsiveImage';
+  import CutModal from '@/components/CutModal';
 
   const NUMBER_COLUMNS = 5;
 
   export default {
     name: 'home',
-    components: { ResponsiveImage },
+    components: { CutModal, ResponsiveImage },
+    props: ['cut'],
     data() {
       return {
         columns: null,
