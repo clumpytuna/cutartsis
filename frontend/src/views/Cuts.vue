@@ -59,6 +59,10 @@
     flex: 28.25;
   }
 
+  .image-wrapper {
+    display: block;
+  }
+
   .image-wrapper + .image-wrapper {
     margin-top: calc(100vw * 2 / 128);
   }
@@ -81,7 +85,7 @@
   }
 
   .tags-wrapper {
-    margin-top: calc(100vw * 2 / 128);
+    padding-top: calc(100vw * 2 / 128);
     position: relative;
   }
 
