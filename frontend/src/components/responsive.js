@@ -14,10 +14,12 @@ function getImageWidth(imageRelativeWidth) {
 }
 
 export function getImageResizedUrl(imageUrl, imageRelativeWidth, imageAbsoluteWidth) {
-  if (USE_SERVER_IMAGES) {
-    imageUrl = 'https://cutartsis.com' + imageUrl;
-  } else if (IS_DEVELOPMENT) {
-    return imageUrl;
+  if (IS_DEVELOPMENT) {
+    if (USE_SERVER_IMAGES) {
+      imageUrl = 'https://cutartsis.com' + imageUrl;
+    } else {
+      return imageUrl;
+    }
   }
 
   const imageWidth = getImageWidth(imageRelativeWidth);
