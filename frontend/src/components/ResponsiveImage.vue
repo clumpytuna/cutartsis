@@ -1,9 +1,11 @@
 <template>
-  <img :src="previewSrc && !previewShown ? previewSrc : srcComputed">
+  <img :src="srcCurrent">
 </template>
 
 <script>
   import { getImageResizedUrl } from './responsive';
+
+  let dummyImage;
 
   export default {
     name: 'ResponsiveImage',
@@ -26,15 +28,20 @@
     },
     data() {
       return {
-        previewShown: false,
+        isImageLoaded: false,
       };
     },
-    async mounted() {
-      const sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
-      await sleep(10);
-      this.previewShown = true;
+    async created() {
+      if (!this.previewSrc) return;
+      const image = new Image();
+      image.onload = () => this.isImageLoaded = true;
+      image.src = this.srcComputed;
+      dummyImage = image;
     },
     computed: {
+      srcCurrent() {
+        return this.previewSrc && !this.isImageLoaded ? this.previewSrc : this.srcComputed;
+      },
       srcComputed() {
         return getImageResizedUrl(this.src, this.sizes / 100, this.width);
       },

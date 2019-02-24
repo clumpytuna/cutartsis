@@ -81,7 +81,7 @@
         image: null,
       };
     },
-    mounted() {
+    created() {
       this.updateImage();
       document.addEventListener('keydown', this.onKeydown);
     },

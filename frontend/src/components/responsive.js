@@ -2,7 +2,7 @@ import store from '@/store';
 
 // const IS_DEVELOPMENT = false;
 const IS_DEVELOPMENT = window.location.hostname === 'localhost';
-const USE_SERVER_IMAGES = false;
+const USE_SERVER_IMAGES = true;
 const MAX_WIDTH = 1500;
 
 function getImageWidth(imageRelativeWidth) {

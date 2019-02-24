@@ -115,13 +115,12 @@
         currentModalCutPreviewSrc: null,
       };
     },
-    async mounted() {
+    async created() {
       this.columns = await getColumns(NUMBER_COLUMNS);
     },
     methods: {
       onImageClick(event) {
         this.currentModalCutPreviewSrc = event.target.getAttribute('src');
-        console.log(this.currentModalCutPreviewSrc);
       },
     },
   };
