@@ -19,7 +19,7 @@
   }
 
   .tags {
-    width: 30vw;
+    width: 70vw;
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
