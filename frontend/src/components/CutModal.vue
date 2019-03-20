@@ -6,6 +6,7 @@
         <a
           :href="`/images/content/${image.image}`"
           download
+          class="image-wrapper"
           @click.stop
         >
           <responsive-image
@@ -30,7 +31,7 @@
 <style scoped>
   .modal-mask {
     position: fixed;
-    z-index: 10;
+    z-index: 100;
     top: 0;
     left: 0;
     width: 100%;
@@ -45,11 +46,16 @@
     text-align: center;
   }
 
+  .image-wrapper {
+    display: block;
+  }
+
   .image {
     width: 40vw;
     height: 70vh;
     object-fit: contain;
     cursor: pointer;
+    display: block;
   }
 
   .tags {
