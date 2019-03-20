@@ -60,6 +60,7 @@
   }
 
   .toolbar, .footer {
+    flex: none;
     z-index: 20;
   }
 
