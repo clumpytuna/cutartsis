@@ -67,7 +67,7 @@
 
 <script>
   import ResponsiveImage from '@/components/ResponsiveImage';
-  import { imagesPromise } from '@/views/layout';
+  import { imagesPromise } from '@/views/data';
 
   export default {
     name: 'CutModal',

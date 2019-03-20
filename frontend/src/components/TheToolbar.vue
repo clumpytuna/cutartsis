@@ -42,7 +42,7 @@
     margin-right: auto;
   }
 
-  .logo, .link {
+  .logo {
     text-decoration: none;
   }
 
@@ -73,10 +73,5 @@
     font-size: calc(10vw * (1862 / 15118) / (994 / 1600));
     font-weight: bold;
     line-height: 1;
-    color: black;
-  }
-
-  .link:hover {
-    color: #1867c0;
   }
 </style>

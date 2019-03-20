@@ -34,15 +34,16 @@
   }
 
   #app {
-    min-height: 100%;
+    height: 100%;
     display: flex;
+    overflow-y: auto;
   }
 
   main {
     flex: 1;
   }
 
-  body::-webkit-scrollbar {
+  #app::-webkit-scrollbar {
     width: 0;
   }
 
@@ -60,6 +61,15 @@
 
   .toolbar, .footer {
     z-index: 20;
+  }
+
+  a.link {
+    text-decoration: none;
+    color: black;
+  }
+
+  a.link:hover {
+    color: #1867c0;
   }
 </style>
 

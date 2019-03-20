@@ -1,5 +1,5 @@
 <template>
-  <div class="columns">
+  <div class="columns" v-if="columns">
     <div
       v-for="(column, i) of columns"
       class="column"
@@ -7,6 +7,7 @@
       <router-link
         v-for="image of column"
         class="image-wrapper"
+        :key="image.image"
         :to="`/cut/${image.image.replace('.png', '')}`"
         replace
       >
@@ -26,7 +27,13 @@
 
         <div class="tags-wrapper">
           <div class="tags">
-            #people #musicans #group #one #two #three #dancer
+            <router-link
+              v-for="tag of tags[image.image]"
+              class="link"
+              :to="`/tags/${tag}`"
+            >
+              #{{ tag }}
+            </router-link>
           </div>
         </div>
       </router-link>
@@ -106,25 +113,38 @@
   import getColumns from './layout';
   import ResponsiveImage from '../components/ResponsiveImage';
   import CutModal from '@/components/CutModal';
+  import { imagesPromise, tagsPromise } from '@/views/data';
 
   const NUMBER_COLUMNS = 5;
 
   export default {
-    name: 'home',
+    name: 'Cuts',
     components: { CutModal, ResponsiveImage },
-    props: ['cut'],
+    props: ['cut', 'tag'],
     data() {
       return {
         columns: null,
+        tags: null,
         currentModalCutPreviewSrc: null,
       };
     },
+    watch: {
+      tag: 'updateColumns',
+    },
     async created() {
-      this.columns = await getColumns(NUMBER_COLUMNS);
+      this.tags = await tagsPromise;
+      await this.updateColumns();
     },
     methods: {
       onImageClick(event) {
         this.currentModalCutPreviewSrc = event.target.getAttribute('src');
+      },
+      async updateColumns() {
+        const images = await imagesPromise;
+        const imagesFiltered = this.tag === undefined
+          ? images
+          : images.filter(image => this.tags[image.image].includes(this.tag));
+        this.columns = getColumns(imagesFiltered, NUMBER_COLUMNS);
       },
     },
   };
