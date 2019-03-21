@@ -5,6 +5,7 @@
       <router-view />
     </main>
     <the-footer class="footer" />
+    <the-cut-modal />
   </div>
 </template>
 
@@ -61,7 +62,7 @@
 
   .toolbar, .footer {
     flex: none;
-    z-index: 20;
+    z-index: 10;
   }
 
   a.link {
@@ -77,8 +78,9 @@
 <script>
   import TheToolbar from './components/TheToolbar';
   import TheFooter from '@/components/TheFooter';
+  import TheCutModal from '@/components/TheCutModal';
 
   export default {
-    components: { TheFooter, TheToolbar },
+    components: { TheCutModal, TheFooter, TheToolbar },
   };
 </script>

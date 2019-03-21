@@ -1,15 +1,13 @@
 <template>
-  <div class="columns" v-if="columns">
+  <div class="columns" v-if="columns && tags">
     <div
       v-for="(column, i) of columns"
       class="column"
     >
-      <router-link
+      <div
         v-for="image of column"
         class="image-wrapper"
         :key="image.image"
-        :to="`/cut/${image.image.replace('.png', '')}`"
-        replace
       >
         <div
           class="image-placeholder"
@@ -20,7 +18,7 @@
             :src="`/images/content/${image.image}`"
             :sizes="(i % 2 === 0 ? 19.8 : 28.25) / 128.1 * 100"
             :width="image.width"
-            @click.native="onImageClick"
+            @click.native="onImageClick($event, image)"
             alt="cut-out image"
           />
         </div>
@@ -36,15 +34,8 @@
             </router-link>
           </div>
         </div>
-      </router-link>
+      </div>
     </div>
-
-    <cut-modal
-      v-if="cut"
-      :cut="cut"
-      :previewSrc="currentModalCutPreviewSrc"
-      @close="$router.replace('/')"
-    />
   </div>
 </template>
 
@@ -66,16 +57,11 @@
     flex: 28.25;
   }
 
-  .image-wrapper {
-    display: block;
-  }
-
   .image-wrapper + .image-wrapper {
     margin-top: calc(100vw * 2 / 128);
   }
 
   .image-wrapper:hover .image {
-    cursor: pointer;
     opacity: 0.9;
     transition: opacity .3s;
   }
@@ -87,6 +73,7 @@
   }
 
   .image {
+    cursor: pointer;
     position: absolute;
     width: 100%;
   }
@@ -111,15 +98,14 @@
 
 <script>
   import getColumns from './layout';
-  import ResponsiveImage from '../components/ResponsiveImage';
-  import CutModal from '@/components/CutModal';
+  import ResponsiveImage from '@/components/ResponsiveImage';
   import { imagesPromise, tagsPromise } from '@/views/data';
 
   const NUMBER_COLUMNS = 5;
 
   export default {
     name: 'Cuts',
-    components: { CutModal, ResponsiveImage },
+    components: { ResponsiveImage },
     props: ['cut', 'tag'],
     data() {
       return {
@@ -132,12 +118,21 @@
       tag: 'updateColumns',
     },
     async created() {
+      if (this.cut) {
+        const images = await imagesPromise;
+        const image = images.find(image => image.image === this.cut + '.png');
+        if (!image) this.$router.replace('/');
+        window.history.replaceState(null, null, '/');
+        this.$store.commit('setCutModal', { image });
+      }
+
       this.tags = await tagsPromise;
       await this.updateColumns();
     },
     methods: {
-      onImageClick(event) {
-        this.currentModalCutPreviewSrc = event.target.getAttribute('src');
+      onImageClick(event, image) {
+        const previewSrc = event.target.getAttribute('src');
+        this.$store.commit('setCutModal', { image, previewSrc });
       },
       async updateColumns() {
         const images = await imagesPromise;

@@ -1,59 +1,61 @@
 <template>
-  <div v-if="tags" class="tags-wrapper">
-    <div class="tags">
-      <router-link
-        v-for="tag of tags"
-        class="tag link"
-        :to="`/tags/${tag}`"
-      >
-        #{{ tag }}
-      </router-link>
+  <div v-if="tags">
+    <div class="tags-wrapper">
+      <div class="tags">
+        <router-link
+          v-for="tag of tags"
+          class="tag link"
+          :to="`/tags/${tag}`"
+        >
+          #{{ tag }}
+        </router-link>
+      </div>
     </div>
+
+    <cuts v-if="selectedTag" :tag="selectedTag" />
   </div>
 </template>
 
 <style scoped>
   .tags-wrapper {
+    margin-top: 5vh;
+    margin-bottom: 10vh;
     display: flex;
-    height: 100%;
+    justify-content: center;
   }
 
   .tags {
-    width: 70vw;
-    margin: auto;
+    width: 80vw;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, min-content);
     grid-auto-rows: minmax(30px, max-content);
     align-items: center;
-    justify-items: center;
   }
 
   .tag {
     display: block;
-    padding: 7px;
-    word-break: break-word;
+    margin-right: 5vw;
+    font-weight: bold;
+    font-size: 2.5vw;
+  }
+
+  .tag.router-link-active {
+    color: #fc7152;
   }
 </style>
 
 <script>
-  import { tagsPromise } from '@/views/data';
+  import Cuts from '@/views/Cuts';
+
+  const TAGS = ['man', 'animal', 'modern', 'realistic', 'woman', 'vegetation', 'child', 'action', 'art', 'group', 'scene', 'static', 'cinema', 'composition', 'background', 'foreground'];
 
   export default {
+    components: { Cuts },
+    props: ['selectedTag'],
     data() {
       return {
-        tags: null,
+        tags: TAGS,
       };
-    },
-    async mounted() {
-      const tagsAll = [].concat(...Object.values(await tagsPromise));
-      const numberTagImages = {};
-      for (const tag of tagsAll) {
-        if (!(tag in numberTagImages)) numberTagImages[tag] = 0;
-        ++numberTagImages[tag];
-      }
-
-      this.tags = [...new Set(tagsAll)]
-        .sort((tag1, tag2) => numberTagImages[tag2] - numberTagImages[tag1]);
     },
   };
 </script>

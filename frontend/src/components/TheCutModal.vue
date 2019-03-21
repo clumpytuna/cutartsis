@@ -1,26 +1,33 @@
 <template>
   <transition name="modal">
-    <div class="modal-mask" @click="$emit('close')">
-      <div class="modal-container" v-if="image">
+    <div class="modal-mask" v-if="tags && cutModal" @click="closeModal(true)">
+      <div class="modal-container">
 
         <a
-          :href="`/images/content/${image.image}`"
+          :href="`/images/content/${cutModal.image.image}`"
           download
           class="image-wrapper"
           @click.stop
         >
           <responsive-image
             class="image"
-            :src="`/images/content/${image.image}`"
+            :src="`/images/content/${cutModal.image.image}`"
             :sizes="40"
-            :previewSrc="previewSrc"
-            :width="image.width"
+            :previewSrc="cutModal.previewSrc"
+            :width="cutModal.image.width"
             alt="cut-out image"
           />
         </a>
 
         <div class="tags">
-          #people #musicans #group #one #two #three #dancer
+          <router-link
+            v-for="tag of tags[cutModal.image.image]"
+            class="link"
+            :to="`/tags/${tag}`"
+            @click.native.stop="closeModal(false)"
+          >
+            #{{ tag }}
+          </router-link>
         </div>
 
       </div>
@@ -31,7 +38,7 @@
 <style scoped>
   .modal-mask {
     position: fixed;
-    z-index: 100;
+    z-index: 20;
     top: 0;
     left: 0;
     width: 100%;
@@ -73,40 +80,46 @@
 
 <script>
   import ResponsiveImage from '@/components/ResponsiveImage';
-  import { imagesPromise } from '@/views/data';
+  import { tagsPromise } from '@/views/data';
+  import { mapState } from 'vuex';
 
   export default {
-    name: 'CutModal',
+    name: 'TheCutModal',
     components: { ResponsiveImage },
-    props: ['cut', 'previewSrc'],
     watch: {
-      $route: 'updateImage',
+      'cutModal'(cutModal, cutModalOld) {
+        if (!cutModalOld) {
+          const url = `/cut/${cutModal.image.image.replace('.png', '')}`;
+          window.history.pushState(null, null, url);
+        }
+      },
     },
     data() {
       return {
         image: null,
+        tags: null,
       };
     },
-    created() {
-      this.updateImage();
+    async created() {
+      this.tags = await tagsPromise;
       document.addEventListener('keydown', this.onKeydown);
     },
     beforeDestroy() {
       document.removeEventListener('keydown', this.onKeydown);
     },
     methods: {
-      async updateImage() {
-        const images = await imagesPromise;
-        this.image = images.find(image => image.image === this.cut + '.png');
-        if (!this.image) {
-          this.$router.replace('/');
+      onKeydown(event) {
+        if (this.cutModal && event.key === 'Escape') {
+          this.closeModal(true);
         }
       },
-      onKeydown(event) {
-        if (event.key === 'Escape') {
-          this.$emit('close');
+      closeModal(goBackInHistory) {
+        this.$store.commit('setCutModal', null);
+        if (goBackInHistory) {
+          window.history.back();
         }
       },
     },
+    computed: mapState(['cutModal']),
   };
 </script>
