@@ -4,14 +4,14 @@
       <div class="modal-container">
 
         <a
-          :href="`/images/content/${cutModal.image.image}`"
+          :href="`/images/content/${cutModal.image.name}`"
           download
           class="image-wrapper"
           @click.stop
         >
           <responsive-image
             class="image"
-            :src="`/images/content/${cutModal.image.image}`"
+            :src="`/images/content/${cutModal.image.name}`"
             :sizes="40"
             :previewSrc="cutModal.previewSrc"
             :width="cutModal.image.width"
@@ -21,7 +21,7 @@
 
         <div class="tags">
           <router-link
-            v-for="tag of tags[cutModal.image.image]"
+            v-for="tag of tags[cutModal.image.name]"
             class="link"
             :to="`/tags/${tag}`"
             @click.native.stop="closeModal(false)"
@@ -89,7 +89,7 @@
     watch: {
       'cutModal'(cutModal, cutModalOld) {
         if (!cutModalOld) {
-          const url = `/cut/${cutModal.image.image.replace('.png', '')}`;
+          const url = `/cut/${cutModal.image.name.replace('.png', '')}`;
           window.history.pushState(null, null, url);
         }
       },

@@ -7,7 +7,7 @@
       <div
         v-for="image of column"
         class="image-wrapper"
-        :key="image.image"
+        :key="image.name"
       >
         <div
           class="image-placeholder"
@@ -15,7 +15,7 @@
         >
           <responsive-image
             class="image"
-            :src="`/images/content/${image.image}`"
+            :src="`/images/content/${image.name}`"
             :sizes="(i % 2 === 0 ? 19.8 : 28.25) / 128.1 * 100"
             :width="image.width"
             @click.native="onImageClick($event, image)"
@@ -26,7 +26,7 @@
         <div class="tags-wrapper">
           <div class="tags">
             <router-link
-              v-for="tag of tags[image.image]"
+              v-for="tag of tags[image.name]"
               class="link"
               :to="`/tags/${tag}`"
             >
@@ -120,7 +120,7 @@
     async created() {
       if (this.cut) {
         const images = await imagesPromise;
-        const image = images.find(image => image.image === this.cut + '.png');
+        const image = images.find(image => image.name === this.cut + '.png');
         if (!image) this.$router.replace('/');
         window.history.replaceState(null, null, '/');
         this.$store.commit('setCutModal', { image });
@@ -138,7 +138,7 @@
         const images = await imagesPromise;
         const imagesFiltered = this.tag === undefined
           ? images
-          : images.filter(image => this.tags[image.image].includes(this.tag));
+          : images.filter(image => this.tags[image.name].includes(this.tag));
         this.columns = getColumns(imagesFiltered, NUMBER_COLUMNS);
       },
     },

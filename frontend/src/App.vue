@@ -35,6 +35,7 @@
   }
 
   #app {
+    /* todo end не работат так как scroll не у body */
     height: 100%;
     display: flex;
     overflow-y: auto;
