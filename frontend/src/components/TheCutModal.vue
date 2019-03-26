@@ -91,6 +91,7 @@
         if (!cutModalOld) {
           const url = `/cut/${cutModal.image.name.replace('.png', '')}`;
           window.history.pushState(null, null, url);
+          document.body.classList.add('modal-open');
         }
       },
     },
@@ -114,6 +115,7 @@
         }
       },
       closeModal(goBackInHistory) {
+        document.body.classList.remove('modal-open');
         this.$store.commit('setCutModal', null);
         if (goBackInHistory) {
           window.history.back();

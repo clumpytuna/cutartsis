@@ -26,39 +26,37 @@
     font-weight: bold;
   }
 
-  html, body {
-    height: 100%;
-  }
-
   * {
     box-sizing: border-box;
   }
 
-  #app {
-    /* todo end не работат так как scroll не у body */
+  html, body {
     height: 100%;
+  }
+
+  body::-webkit-scrollbar {
+    width: 0;
+  }
+
+  body.modal-open {
+    overflow: hidden;
+  }
+
+  #app {
+    min-height: 100%;
     display: flex;
-    overflow-y: auto;
+    flex-direction: column;
+
+    padding-left: calc(100vw * 6.1 / 128);
+    padding-right: calc(100vw * 6.1 / 128);
+
+    font-family: AktivGroteskCorp, Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   main {
     flex: 1;
-  }
-
-  #app::-webkit-scrollbar {
-    width: 0;
-  }
-
-  #app {
-    font-family: AktivGroteskCorp, Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
-    position: relative;
-    padding-left: calc(100vw * 6.1 / 128);
-    padding-right: calc(100vw * 6.1 / 128);
-    display: flex;
-    flex-direction: column;
   }
 
   .toolbar, .footer {
