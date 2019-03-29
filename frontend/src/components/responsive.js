@@ -22,10 +22,10 @@ export function getImageResizedUrl(imageUrl, imageRelativeWidth, imageAbsoluteWi
     }
   }
 
-  const imageWidth = getImageWidth(imageRelativeWidth);
-  if (imageWidth >= imageAbsoluteWidth - 100) return imageUrl;  // изображения размера близкого к исходного специально не генерируются
   imageUrl = imageUrl.replace('.png', '.jpg');
   imageUrl = imageUrl.replace(' ', '%20');
-  imageUrl = imageUrl.replace('/images/content/', `/images_resized/content/${imageWidth}/`);
+  const imageWidth = getImageWidth(imageRelativeWidth);
+  if (imageWidth >= imageAbsoluteWidth - 100) return imageUrl;  // изображения размера близкого к исходному специально не генерируются
+  imageUrl = imageUrl.replace('/images/content/', `/images/content/${imageWidth}/`);
   return imageUrl;
 }

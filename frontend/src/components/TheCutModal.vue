@@ -4,7 +4,7 @@
       <div class="modal-container">
 
         <a
-          :href="`/images/content/${cutModal.image.name}`"
+          :href="`/images_png/content/${cutModal.image.name}`"
           download
           class="image-wrapper"
           @click.stop
