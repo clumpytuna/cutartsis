@@ -22,9 +22,12 @@ export function getImageResizedUrl(imageUrl, imageRelativeWidth, imageAbsoluteWi
     }
   }
 
-  imageUrl = imageUrl.replace('.png', '.jpg');
   imageUrl = imageUrl.replace(' ', '%20');
   const imageWidth = getImageWidth(imageRelativeWidth);
+  // иначе не заменяем, так как, например, на ретине картинке приходится растягиваться (для 42.jpg на ноутбуке Михаила — примерно в 1.25 раз)
+  if (imageWidth < imageAbsoluteWidth * 1.1) {
+    imageUrl = imageUrl.replace('.png', '.jpg');
+  }
   if (imageWidth >= imageAbsoluteWidth - 100) return imageUrl;  // изображения размера близкого к исходному специально не генерируются
   imageUrl = imageUrl.replace('/images/content/', `/images/content/${imageWidth}/`);
   return imageUrl;
