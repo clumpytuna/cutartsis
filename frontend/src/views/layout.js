@@ -15,9 +15,8 @@ function splitImages(images) {
   function getTotalColumnHeight(i) {
     const imagesHeight = columnHeights[i];
     const numberImages = columns[i].length;
-    const tagsHeight = numberImages * 2 / 128;
     const marginHeight = (numberImages - 1) * 2 / 128;
-    return (imagesHeight + tagsHeight + marginHeight) / columnCounts[i];
+    return (imagesHeight + marginHeight) / columnCounts[i];
   }
 
   while (getTotalColumnHeight(0) > getTotalColumnHeight(1)) {

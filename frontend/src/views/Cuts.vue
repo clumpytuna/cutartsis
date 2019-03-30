@@ -22,18 +22,6 @@
             alt="cut-out image"
           />
         </div>
-
-        <div class="tags-wrapper">
-          <div class="tags">
-            <router-link
-              v-for="tag of tags[image.name]"
-              class="link"
-              :to="`/tags/${tag}`"
-            >
-              #{{ tag }}
-            </router-link>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -76,23 +64,6 @@
     cursor: pointer;
     position: absolute;
     width: 100%;
-  }
-
-  .tags-wrapper {
-    padding-top: calc(100vw * 2 / 128);
-    position: relative;
-  }
-
-  .tags {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    word-wrap: break-word;
-    color: black;
-
-    /* 782 — ширина #musicans при font-size: 10vw; и размере экрана 1600px */
-    /* Подробное объяснение в .logo */
-    font-size: calc(10vw * (513 / 15118) / (782 / 1600));
   }
 </style>
 

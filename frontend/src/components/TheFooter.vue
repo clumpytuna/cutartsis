@@ -18,8 +18,9 @@
     background-color: white;
     position: sticky;
     bottom: 0;
-    padding-top: calc(100vw * 322 / 15118);
-    padding-bottom: calc(100vw * (429 - 29) / 15118);
+    /* деление на два, потому что обсудили, что высота футера слишком большая, можно уменьшить */
+    padding-top: calc(100vw * 322 / 15118 / 2);
+    padding-bottom: calc(100vw * (429 - 29) / 15118 / 2);
 
     display: flex;
     justify-content: space-between;
