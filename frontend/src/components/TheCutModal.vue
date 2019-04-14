@@ -12,9 +12,10 @@
           <responsive-image
             class="image"
             :src="`/images/content/${cutModal.image.name}`"
-            :sizes="40"
+            :sizes="imageSize.relativeWidth * 100"
             :previewSrc="cutModal.previewSrc"
             :width="cutModal.image.width"
+            :style="{ '--relative-height': imageSize.relativeHeight, '--relative-width': imageSize.relativeWidth }"
             alt="cut-out image"
           />
         </a>
@@ -50,16 +51,15 @@
 
   .modal-container {
     margin: auto;
-    text-align: center;
-  }
 
-  .image-wrapper {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .image {
-    width: 40vw;
-    height: 70vh;
+    height: calc(var(--relative-height) * 100vh);
+    width: calc(var(--relative-width) * 100vw);
     object-fit: contain;
     cursor: pointer;
     display: block;
@@ -122,6 +122,22 @@
         }
       },
     },
-    computed: mapState(['cutModal']),
+    computed: {
+      ...mapState(['cutModal']),
+      imageSize() {
+        const relativeHeightMax = 0.70;  // 70vh
+        const relativeWidthMax = 0.70;  // 70vw
+
+        const { height: absoluteHeight, width: absoluteWidth } = this.cutModal.image;
+        const { pageHeight, pageWidth } = this.$store.state;
+        const ratioHeight = pageHeight * relativeHeightMax / absoluteHeight;
+        const ratioWidth = pageWidth * relativeWidthMax / absoluteWidth;
+        const ratio = Math.min(ratioHeight, ratioWidth);
+
+        const relativeHeight = absoluteHeight * ratio / pageHeight;
+        const relativeWidth = absoluteWidth * ratio / pageWidth;
+        return { relativeHeight, relativeWidth };
+      },
+    },
   };
 </script>
