@@ -20,23 +20,21 @@
   .tags-wrapper {
     margin-top: 5vh;
     margin-bottom: 10vh;
-    display: flex;
-    justify-content: center;
   }
 
   .tags {
-    width: 80vw;
     display: grid;
-    grid-template-columns: repeat(4, min-content);
-    grid-auto-rows: minmax(30px, max-content);
+    grid-template-columns: repeat(8, min-content);
     align-items: center;
   }
 
   .tag {
     display: block;
-    margin-right: 5vw;
+    margin-right: 1vw;
     font-weight: bold;
-    font-size: 2.5vw;
+
+    /* 1050 — ширина #background при font-size: 10vw; и размере экрана 1680px */
+    font-size: calc(10vw * (886 / 15118) / (1050 / 1680));
   }
 
   .tag.router-link-active {
@@ -47,7 +45,7 @@
 <script>
   import Cuts from '@/views/Cuts';
 
-  const TAGS = ['man', 'animal', 'modern', 'realistic', 'woman', 'vegetation', 'child', 'action', 'art', 'group', 'scene', 'static', 'cinema', 'composition', 'background', 'foreground'];
+  const TAGS = ['man', 'scene', 'child', 'group', 'static', 'animal', 'action', 'art', 'woman', 'background', 'modern', 'composition', 'foreground', 'vegetation', 'realistic', 'cinema'];
 
   export default {
     components: { Cuts },
