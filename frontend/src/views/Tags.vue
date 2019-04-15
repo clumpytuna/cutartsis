@@ -1,5 +1,5 @@
 <template>
-  <div v-if="tags">
+  <div v-if="tags" class="container-padding">
     <div class="tags-wrapper">
       <div class="tags">
         <router-link

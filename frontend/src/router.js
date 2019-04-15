@@ -3,7 +3,6 @@ import Router from 'vue-router';
 import Cuts from './views/Cuts.vue';
 import Tags from './views/Tags.vue';
 import About from './views/About.vue';
-import HighResolution from './views/HighResolution.vue';
 
 Vue.use(Router);
 
@@ -23,7 +22,6 @@ export default new Router({
     { path: '/tags', component: Tags },
     { path: '/tags/:selectedTag', component: Tags, props: true },
     { path: '/about', component: About },
-    { path: '/high_resolution', component: HighResolution },
     { path: '*', redirect: '/' },
   ],
 });

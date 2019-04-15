@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
+    pageHeight: window.innerHeight,
     pageWidth: window.innerWidth,
     cutModal: null,
     // cutModal: {
@@ -14,6 +15,7 @@ const store = new Vuex.Store({
   },
   mutations: {
     updatePageWidth(state) {
+      state.pageHeight = window.innerHeight;
       state.pageWidth = window.innerWidth;
     },
     setCutModal(state, cutModal) {

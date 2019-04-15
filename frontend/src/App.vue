@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <the-toolbar class="toolbar" />
+    <the-toolbar class="toolbar container-padding" />
     <main>
       <router-view />
     </main>
-    <the-footer class="footer" />
+    <the-footer class="footer container-padding" />
     <the-cut-modal />
   </div>
 </template>
@@ -42,13 +42,26 @@
     overflow: hidden;
   }
 
+  a.link {
+    text-decoration: none;
+    color: black;
+  }
+
+  a.link:hover {
+    color: #1867c0;
+  }
+
+  .container-padding {
+    padding-left: calc(100vw * 6.1 / 128);
+    padding-right: calc(100vw * 6.1 / 128);
+  }
+</style>
+
+<style scoped>
   #app {
     min-height: 100%;
     display: flex;
     flex-direction: column;
-
-    padding-left: calc(100vw * 6.1 / 128);
-    padding-right: calc(100vw * 6.1 / 128);
 
     font-family: AktivGroteskCorp, Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -62,15 +75,6 @@
   .toolbar, .footer {
     flex: none;
     z-index: 10;
-  }
-
-  a.link {
-    text-decoration: none;
-    color: black;
-  }
-
-  a.link:hover {
-    color: #1867c0;
   }
 </style>
 

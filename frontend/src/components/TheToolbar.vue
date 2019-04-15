@@ -16,12 +16,6 @@
       >
         ABOUT US
       </router-link>
-      <router-link
-        to="/high_resolution"
-        class="link"
-      >
-        HIGH RESOLUTION!
-      </router-link>
     </div>
   </header>
 </template>

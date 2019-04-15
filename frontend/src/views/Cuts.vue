@@ -1,5 +1,5 @@
 <template>
-  <div class="columns" v-if="columns && tags">
+  <div class="columns container-padding" v-if="columns && tags">
     <div
       v-for="(column, i) of columns"
       class="column"
