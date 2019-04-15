@@ -16,7 +16,7 @@
           <responsive-image
             class="image"
             :src="`/images/content/${image.name}`"
-            :sizes="(i % 2 === 0 ? 19.8 : 28.25) / 128.1 * 100"
+            :sizes="(i % 2 === 0 ? 19.8 : 28.25) / 128.1 * 100 * (pageWidth < 1366 ? 1 : (1366 / pageWidth))"
             :width="image.width"
             @click.native="onImageClick($event, image)"
             alt="cut-out image"
@@ -71,6 +71,7 @@
   import getColumns from './layout';
   import ResponsiveImage from '@/components/ResponsiveImage';
   import { imagesPromise, tagsPromise } from '@/views/data';
+  import { mapState } from 'vuex';
 
   const NUMBER_COLUMNS = 5;
 
@@ -113,5 +114,6 @@
         this.columns = getColumns(imagesFiltered, NUMBER_COLUMNS);
       },
     },
+    computed: mapState(['pageWidth']),
   };
 </script>
