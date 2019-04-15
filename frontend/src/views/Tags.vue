@@ -1,6 +1,6 @@
 <template>
-  <div v-if="tags" class="container-padding">
-    <div class="tags-wrapper">
+  <div v-if="tags">
+    <div class="tags-wrapper container-padding">
       <div class="tags">
         <router-link
           v-for="tag of tags"

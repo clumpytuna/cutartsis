@@ -2,7 +2,7 @@
   <div id="app">
     <the-toolbar class="toolbar container-padding" />
     <main>
-      <router-view />
+      <router-view class="router-view" />
     </main>
     <the-footer class="footer container-padding" />
     <the-cut-modal />
@@ -69,6 +69,14 @@
   }
 
   main {
+    display: flex;
+    justify-content: center;
+
+    flex: 1;
+  }
+
+  .router-view:not(.full-width) {
+    max-width: 1366px;
     flex: 1;
   }
 

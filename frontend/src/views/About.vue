@@ -1,5 +1,5 @@
 <template>
-  <div class="root">
+  <div class="root full-width">
     <div class="text">
       <h2>What is <span class="colored">Cutartsis</span>?</h2>
       <p>Cutartsis is a project for a student architects working all over the world. Our team mindfully curates a collection of cut out people from pieces of art. We appreciate the works of each artists we use in our project and want to share with you. Our goal is to give students access to a database of free, high-res, PNG images that reflect our vision of beauty.</p>
