@@ -3,11 +3,11 @@
     <span><b>CUTARTSIS</b> New Cutouts! 04/19 added 15 new cutouts</span>
     <a
       class="instagram"
-      href="https://instagram.com/"
+      href="https://www.instagram.com/cutartsis/"
       target="_blank"
       rel="noopener"
     >
-      <b>cut_art_sis</b>
+      <b>Follow me!</b>
       <instagram-icon class="instagram-icon" />
     </a>
   </footer>
