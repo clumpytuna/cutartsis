@@ -16,6 +16,7 @@
             :previewSrc="cutModal.previewSrc"
             :width="cutModal.image.width"
             :style="{ '--relative-height': imageSize.relativeHeight, '--relative-width': imageSize.relativeWidth }"
+            useJp2
             alt="cut-out image"
           />
         </a>
