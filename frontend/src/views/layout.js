@@ -44,7 +44,7 @@ export default function getColumns(images, numberColumns) {
   const [imagesVertical, imagesHorizontal] = splitImages(images);
   for (const images of [imagesVertical, imagesHorizontal]) {
     images.sort((image1, image2) => image1.name.localeCompare(image2.name));
-    images.sort((image1, image2) => image2.modifiedDate - image1.modifiedDate);
+    images.sort((image1, image2) => image2.index - image1.index);
   }
 
   const columnsHorizontal = createColumnsGroup(imagesHorizontal, Math.floor(numberColumns / 2));

@@ -5,10 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "generate-images-json": "cd public/images && node printImageSizes.js >images.json"
+    "generate-images-json": "cd public/images && node printImageInfos.js >images.json"
   },
   "dependencies": {
-    "axios": "^0.18.0",
     "normalize.css": "^8.0.1",
     "vue": "^2.6.10",
     "vue-router": "^3.0.6",

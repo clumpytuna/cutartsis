@@ -1,6 +1,6 @@
 <template>
   <transition name="modal">
-    <div class="modal-mask" v-if="tags && cutModal" @click="closeModal(true)">
+    <div class="modal-mask" v-if="cutModal" @click="closeModal(true)">
       <div class="modal-container">
 
         <a
@@ -22,7 +22,7 @@
 
         <div class="tags">
           <router-link
-            v-for="tag of tags[cutModal.image.name]"
+            v-for="tag of cutModal.image.tags"
             class="link"
             :to="`/tags/${tag}`"
             @click.native.stop="closeModal(false)"
@@ -80,7 +80,6 @@
 
 <script>
   import ResponsiveImage from '@/components/ResponsiveImage';
-  import { tagsPromise } from '@/views/data';
   import { mapState } from 'vuex';
 
   export default {
@@ -98,11 +97,9 @@
     data() {
       return {
         image: null,
-        tags: null,
       };
     },
     async created() {
-      this.tags = await tagsPromise;
       document.addEventListener('keydown', this.onKeydown);
     },
     beforeDestroy() {

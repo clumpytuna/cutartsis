@@ -1,5 +1,5 @@
 <template>
-  <div class="columns container-padding" v-if="columns && tags">
+  <div class="columns container-padding" v-if="columns">
     <div
       v-for="(column, i) of columns"
       class="column"
@@ -70,7 +70,7 @@
 <script>
   import getColumns from './layout';
   import ResponsiveImage from '@/components/ResponsiveImage';
-  import { imagesPromise, tagsPromise } from '@/views/data';
+  import { imagesPromise } from '@/views/data';
   import { mapState } from 'vuex';
 
   const NUMBER_COLUMNS = 5;
@@ -82,7 +82,6 @@
     data() {
       return {
         columns: null,
-        tags: null,
         currentModalCutPreviewSrc: null,
       };
     },
@@ -98,7 +97,6 @@
         this.$store.commit('setCutModal', { image });
       }
 
-      this.tags = await tagsPromise;
       await this.updateColumns();
     },
     methods: {
@@ -110,7 +108,7 @@
         const images = await imagesPromise;
         const imagesFiltered = this.tag === undefined
           ? images
-          : images.filter(image => this.tags[image.name].includes(this.tag));
+          : images.filter(image => image.tags.includes(this.tag));
         this.columns = getColumns(imagesFiltered, NUMBER_COLUMNS);
       },
     },
