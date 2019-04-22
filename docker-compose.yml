@@ -8,7 +8,7 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - /data/frontend-images/pictures_processed/:/images
+      - /data/frontend-images/:/images
       - /root/certs-data/:/data/letsencrypt/
       - /etc/letsencrypt/:/etc/letsencrypt/
     container_name: frontend
