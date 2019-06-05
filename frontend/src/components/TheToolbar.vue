@@ -5,7 +5,7 @@
     </router-link>
     <div class="links_wrapper">
       <router-link
-        to="/tags"
+        to="/tags/man"
         class="link"
       >
         TAGS
