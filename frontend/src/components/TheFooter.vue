@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <span><b>CUTARTSIS</b> New Cutouts! 05/ 08 added 18 new cutouts</span>
+    <span><b>CUTARTSIS</b> New Cutouts! 06/ 06 added 10 new cutouts</span>
     <a
       class="instagram"
       href="https://www.instagram.com/cutartsis/"
