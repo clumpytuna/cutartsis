@@ -10,7 +10,7 @@
       <h2>License</h2>
       <p><span class="colored">Cutartsis</span> is an attempt to help students to bring visualizations of unbuilt architecture to life. Most of these images have not been licensed for commercial. This website and the contents therein are intended only for educational use and may not be legally used for commercial work of any kind without the consent of their rightful owners and permission from those depicted. If you have any questions or complaints contact <a href="mailto:info@cutartsis.com" target="_blank">info@cutartsis.com</a></p>
 
-      <h2>Who does create <span class="colored">Cutartsis</span>?</h2>
+      <h2>Who creates <span class="colored">Cutartsis</span>?</h2>
       <p>We are a team of three hip people. Two freshly baked programmers from Moscow and one talented architect from Saint Petersburg. Feel free to contact us about anything. Cheers!</p>
 
       <h2>Follow:</h2>
