@@ -6,3 +6,7 @@
 
 
 Файл с описанием тегов: [`tags.json`](https://github.com/clumpytuna/cutartsis_pictures/blob/master/tags.json)
+
+<img src="./frontend/public/static/preview_1.png"/>
+
+<img src="./frontend/public/static/preview_2.png"/>
