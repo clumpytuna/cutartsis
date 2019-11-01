@@ -4,7 +4,7 @@ set -x
 
 REMOTE=cutartsis@207.154.229.41
 
-sshpass -p $PASS ssh ${REMOTE} <<ENDSSH
+sshpass -p $PASS ssh  -o StrictHostKeyChecking=no ${REMOTE} <<ENDSSH
 set -e
 set -x
 
@@ -17,3 +17,5 @@ git clone --depth 1 "https://$GITHUB_TOKEN@github.com/clumpytuna/cutartsis.git" 
 
 ENDSSH
 echo "Deploy complete!"
+
+
