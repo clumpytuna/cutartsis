@@ -1,14 +1,16 @@
 dist: xenial
 language: generic
 
+addons:
+  apt:
+    packages:
+    - sshpass
 
 git:
   depth: 1
   submodules: false
 
 deploy:
-  before_script:
-  - apt-get update -y && apt-get install sshpass
   provider: script
   script: bash travis-script.sh
   skip_cleanup: true
