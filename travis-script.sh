@@ -4,7 +4,7 @@ set -x
 
 REMOTE=cutartsis@207.154.229.41
 
-sshpass -p $PASS ssh  -o StrictHostKeyChecking=no ${REMOTE} <<ENDSSH
+sshpass -p $PASS ssh  -o StrictHostKeyChecking=no ${REMOTE}
 set -e
 set -x
 
