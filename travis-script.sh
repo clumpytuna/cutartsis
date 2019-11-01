@@ -4,8 +4,7 @@ set -x
 
 REMOTE=cutartsis@207.154.229.41
 
-sshpass -p $PASS ssh ${REMOTE}
-
+sshpass -p $PASS ssh ${REMOTE} <<ENDSSH
 set -e
 set -x
 
