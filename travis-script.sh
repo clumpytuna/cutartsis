@@ -4,7 +4,8 @@ set -x
 
 REMOTE=cutartsis@207.154.229.41
 
-ssh -o stricthostkeychecking=no ${REMOTE} <<ENDSSH
+sshpass -p $SSHPASS ssh ${REMOTE}
+
 set -e
 set -x
 
