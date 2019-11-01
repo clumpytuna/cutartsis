@@ -2,7 +2,7 @@
 set -e
 set -x
 
-REMOTE=cutartsis@207.154.229.41
+REMOTE=207.154.229.41
 
 sshpass -p $SSHPASS ssh ${REMOTE}
 
