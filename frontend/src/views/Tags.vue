@@ -24,7 +24,7 @@
 
   .tags {
     display: grid;
-    grid-template-columns: repeat(8, min-content);
+    grid-template-columns: repeat(8, max-content);
     align-items: center;
   }
 
