@@ -34,7 +34,7 @@
     font-weight: bold;
 
     /* 1050 — ширина #background при font-size: 10vw; и размере экрана 1680px */
-    font-size: calc(10vw * (886 / 15118) / (1050 / 1680));
+    font-size: calc(10vw * (886 / 15118) / (1550 / 1680));
   }
 
   .tag.router-link-active {
