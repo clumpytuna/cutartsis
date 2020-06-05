@@ -24,7 +24,7 @@
 
   .tags {
     display: grid;
-    grid-template-columns: repeat(10, max-content);
+    grid-template-columns: repeat(11, max-content);
     align-items: center;
   }
 
@@ -45,7 +45,7 @@
 <script>
   import Cuts from '@/views/Cuts';
 
-  const TAGS = ['background', 'children', 'group', 'animals', 'plants', 'motion', 'sitting', 'coloured', 'uncoloured', 'Isle of Dogs', 'Vincent van Gogh' , 'Paul Gauguin', 'Edvard Munch', 'realistic', 'cartoons', 'art', 'Wes Anderson', 'Émile Bernard', 'Cindy Sherman'];
+  const TAGS = ['background', 'children', 'group', 'animals', 'plants', 'motion', 'sitting', 'coloured', 'uncoloured', 'Isle of Dogs', 'Vincent van Gogh' , 'Paul Gauguin', 'Edvard Munch', 'realistic', 'cartoons', 'art', 'Wes Anderson', 'Émile Bernard', 'Cindy Sherman', 'Paul Thomas Anderson'];
 
   export default {
     components: { Cuts },
