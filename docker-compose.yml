@@ -11,5 +11,6 @@ services:
       - /data/frontend-images/:/images
       - /root/certs-data/:/data/letsencrypt/
       - /etc/letsencrypt/:/etc/letsencrypt/
+      - /logs:/var/logs/nginx
     container_name: frontend
 
