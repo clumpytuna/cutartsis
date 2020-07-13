@@ -46,7 +46,7 @@
 <script>
   import Cuts from '@/views/Cuts';
 
-  const TAGS = ['background', 'children', 'group', 'animals', 'plants', 'motion', 'sitting', 'coloured', 'uncoloured', 'Isle of Dogs', 'Vincent van Gogh' , 'Paul Gauguin', 'Edvard Munch', 'realistic', 'cartoons', 'art', 'Wes Anderson', 'Émile Bernard', 'Cindy Sherman', 'Paul Thomas Anderson', 'The Simpsons', 'Jheronimus Bosch'];
+  const TAGS = ['background', 'children', 'group', 'animals', 'plants', 'motion', 'sitting', 'coloured', 'uncoloured', 'Isle of Dogs', 'Vincent van Gogh' , 'Paul Gauguin', 'Edvard Munch', 'realistic', 'cartoons', 'art', 'Wes Anderson', 'Émile Bernard', 'Cindy Sherman', 'Paul Thomas Anderson', 'The Simpsons', 'Jheronimus Bosch', 'Martin Scorsese'];
 
   export default {
     components: { Cuts },
