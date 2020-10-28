@@ -13,7 +13,7 @@ set -x
 # You can find it credintals here ???
 
 
-rm -rf ~/deploy
+sudo rm -rf ~/deploy
 git clone --depth 1 "https://$GITHUB_TOKEN@github.com/clumpytuna/cutartsis.git" ~/deploy
 
 ~/deploy/frontend/docker/build_and_restart_docker.sh
